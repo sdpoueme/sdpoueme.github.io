@@ -1,2 +1,0 @@
-# sdpoueme.github.io
-A place where I share my thoughts on technology and society among other things. 
