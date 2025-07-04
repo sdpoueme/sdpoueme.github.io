@@ -1,497 +1,831 @@
-<!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+---
+layout: default
+title: "Serge Poueme - Innovation Tales"
+description: "Exploring the intersection of technology, innovation, and society through deep dives into urban intelligence, gaming evolution, and space exploration."
+---
 
-  <!-- Primary Meta Tags -->
-  <title>{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
-  <meta name="title" content="{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
-  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
-  <meta name="author" content="{{ page.author | default: site.author.name | escape }}">
+<section class="hero">
+  <div class="hero-content">
+    <h1>Innovation Tales</h1>
+    <p>Exploring the intersection of technology, innovation, and society</p>
+    <div class="hero-cta">
+      <a href="{{ '/innovation_tales/' | relative_url }}" class="btn btn-primary">Explore Stories</a>
+      <a href="{{ '/about/' | relative_url }}" class="btn btn-outline">About Me</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="floating-elements">
+      <div class="element element-1">🏙️</div>
+      <div class="element element-2">🎮</div>
+      <div class="element element-3">🚀</div>
+      <div class="element element-4">💡</div>
+      <div class="element element-5">🌐</div>
+    </div>
+  </div>
+</section>
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
-  <meta property="og:url" content="{{ page.url | absolute_url }}">
-  <meta property="og:title" content="{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
-  <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
-  <meta property="og:image" content="{{ page.image | default: '/assets/images/og-image.jpg' | absolute_url }}">
+<section class="featured-categories">
+  <div class="content-wrapper">
+    <h2>Innovation Domains</h2>
+    <div class="categories-grid">
+      <article class="category-card urban-intelligence">
+        <div class="category-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+        </div>
+        <h3>Urban Intelligence</h3>
+        <p>Exploring smart cities, urban planning, and how technology is reshaping our urban environments for a sustainable future.</p>
+        <div class="category-stats">
+          {% assign urban_posts = site.posts | where_exp: "post", "post.categories contains 'urban-intelligence'" %}
+          <span>{{ urban_posts.size }} articles</span>
+        </div>
+        <a href="{{ '/innovation_tales/urban-intelligence/' | relative_url }}" class="category-link">
+          Explore Urban Intelligence →
+        </a>
+      </article>
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="{{ page.url | absolute_url }}">
-  <meta property="twitter:title" content="{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
-  <meta property="twitter:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
-  <meta property="twitter:image" content="{{ page.image | default: '/assets/images/og-image.jpg' | absolute_url }}">
-  {% if site.twitter_username %}<meta name="twitter:creator" content="@{{ site.twitter_username }}">{% endif %}
+      <article class="category-card gaming">
+        <div class="category-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21.58 16.09l-1.09-7.66C20.21 6.46 18.52 5 16.53 5H7.47C5.48 5 3.79 6.46 3.51 8.43l-1.09 7.66C2.2 17.63 3.39 19 4.94 19c.68 0 1.32-.27 1.8-.75L9 16h6l2.25 2.25c.48.48 1.12.75 1.8.75 1.56 0 2.75-1.37 2.53-2.91zM11 11H9v2H8v-2H6v-1h2V8h1v2h2v1zm4-0.5c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm2 3c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/>
+          </svg>
+        </div>
+        <h3>Gaming Evolution</h3>
+        <p>Insights into interactive entertainment, virtual worlds, and how gaming is pioneering the future of digital experiences.</p>
+        <div class="category-stats">
+          {% assign gaming_posts = site.posts | where_exp: "post", "post.categories contains 'gaming'" %}
+          <span>{{ gaming_posts.size }} articles</span>
+        </div>
+        <a href="{{ '/innovation_tales/gaming/' | relative_url }}" class="category-link">
+          Explore Gaming →
+        </a>
+      </article>
 
-  <!-- Canonical URL -->
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+      <article class="category-card space-exploration">
+        <div class="category-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+          </svg>
+        </div>
+        <h3>Space Exploration</h3>
+        <p>Discovering new frontiers beyond Earth, from commercial space ventures to the technologies shaping humanity's cosmic future.</p>
+        <div class="category-stats">
+          {% assign space_posts = site.posts | where_exp: "post", "post.categories contains 'space-exploration'" %}
+          <span>{{ space_posts.size }} articles</span>
+        </div>
+        <a href="{{ '/innovation_tales/space-exploration/' | relative_url }}" class="category-link">
+          Explore Space →
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
 
-  <!-- Stylesheets -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+<section class="latest-posts">
+  <div class="content-wrapper">
+    <div class="section-header">
+      <h2>Latest Insights</h2>
+      <a href="{{ '/archive/' | relative_url }}" class="view-all-link">View All Posts →</a>
+    </div>
+    
+    <div class="posts-grid">
+      {% for post in site.posts limit:6 %}
+      <article class="post-card">
+        {% if post.image %}
+        <div class="post-image">
+          <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy">
+          <div class="post-overlay">
+            {% if post.categories %}
+            <span class="post-category">{{ post.categories.first | capitalize }}</span>
+            {% endif %}
+          </div>
+        </div>
+        {% endif %}
+        
+        <div class="post-card-content">
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
+          
+          <div class="post-card-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+            <span class="reading-time">{{ post.content | number_of_words | divided_by: 200 | ceil }} min read</span>
+          </div>
+          
+          {% if post.tags %}
+          <div class="post-card-tags">
+            {% for tag in post.tags limit:3 %}
+              <span class="tag-mini">#{{ tag }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
 
-  <!-- Favicons -->
-  <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/apple-touch-icon.png' | relative_url }}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon-32x32.png' | relative_url }}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/favicon-16x16.png' | relative_url }}">
-  <link rel="manifest" href="{{ '/assets/images/site.webmanifest' | relative_url }}">
+<section class="newsletter-signup">
+  <div class="content-wrapper">
+    <div class="newsletter-content">
+      <div class="newsletter-text">
+        <h2>Stay Updated</h2>
+        <p>Get notified when I publish new insights on innovation, technology, and the future. No spam, just quality content delivered to your inbox.</p>
+      </div>
+      <form class="newsletter-form-large" action="#" method="post">
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Enter your email address" required>
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </div>
+        <p class="newsletter-privacy">By subscribing, you agree to receive updates. You can unsubscribe at any time.</p>
+      </form>
+    </div>
+  </div>
+</section>
 
-  <!-- RSS Feed -->
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | relative_url }}">
+<section class="about-preview">
+  <div class="content-wrapper">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>About This Blog</h2>
+        <p>Innovation Tales is where I explore the fascinating intersection of technology and society. As a software engineer with a passion for understanding how emerging technologies reshape our world, I dive deep into the stories behind the innovations that matter.</p>
+        <p>From the data-driven cities of tomorrow to the virtual worlds we're building today, and the space ventures that will define our future—each story reveals how human creativity and technological capability combine to solve complex challenges.</p>
+        <a href="{{ '/about/' | relative_url }}" class="btn btn-outline">Learn More About Me</a>
+      </div>
+      <div class="about-visual">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">{{ site.posts.size }}</div>
+            <div class="stat-label">Articles Published</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Innovation Domains</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">{{ site.posts | map: 'content' | join: ' ' | number_of_words | divided_by: 200 | ceil }}</div>
+            <div class="stat-label">Minutes of Reading</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">{{ site.posts | map: 'tags' | join: ',' | split: ',' | uniq | size }}</div>
+            <div class="stat-label">Topics Covered</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "{% if page.layout == 'post' %}BlogPosting{% else %}WebSite{% endif %}",
-    "url": "{{ page.url | absolute_url }}",
-    "name": "{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}",
-    "description": "{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}",
-    "author": {
-      "@type": "Person",
-      "name": "{{ page.author | default: site.author.name | escape }}"
-    },
-    {% if page.layout == 'post' %}
-    "headline": "{{ page.title | escape }}",
-    "datePublished": "{{ page.date | date_to_xmlschema }}",
-    "dateModified": "{{ page.modified_date | default: page.date | date_to_xmlschema }}",
-    "image": "{{ page.image | default: '/assets/images/og-image.jpg' | absolute_url }}",
-    {% endif %}
-    "publisher": {
-      "@type": "Person",
-      "name": "{{ site.author.name | escape }}",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "{{ '/assets/images/logo.png' | absolute_url }}"
-      }
+<style>
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(135deg, 
+      rgba(37, 99, 235, 0.1) 0%, 
+      rgba(124, 58, 237, 0.1) 50%, 
+      rgba(245, 158, 11, 0.1) 100%);
+    padding: var(--space-3xl) 0;
+    margin-bottom: var(--space-3xl);
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: var(--space-3xl);
+    min-height: 60vh;
+  }
+
+  .hero-content {
+    z-index: 2;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-lg);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-xl);
+    max-width: 500px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+  }
+
+  .hero-visual {
+    position: relative;
+    height: 400px;
+  }
+
+  .floating-elements {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .element {
+    position: absolute;
+    font-size: 3rem;
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.8;
+  }
+
+  .element-1 { top: 10%; left: 20%; animation-delay: 0s; }
+  .element-2 { top: 30%; right: 10%; animation-delay: 1s; }
+  .element-3 { bottom: 20%; left: 10%; animation-delay: 2s; }
+  .element-4 { top: 60%; left: 50%; animation-delay: 3s; }
+  .element-5 { bottom: 40%; right: 30%; animation-delay: 4s; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+  }
+
+  /* Featured Categories */
+  .featured-categories {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .featured-categories h2 {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+    font-size: 2.5rem;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .category-card {
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-xl);
+    text-align: center;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  }
+
+  .category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .category-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--space-lg) auto;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .urban-intelligence .category-icon {
+    background: linear-gradient(135deg, #10b981, #059669);
+  }
+
+  .gaming .category-icon {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  }
+
+  .space-exploration .category-icon {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+  }
+
+  .category-card h3 {
+    margin-bottom: var(--space-md);
+    font-size: 1.5rem;
+  }
+
+  .category-card p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+    line-height: 1.6;
+  }
+
+  .category-stats {
+    margin-bottom: var(--space-lg);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .category-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: var(--font-weight-semibold);
+    transition: color var(--transition-fast);
+  }
+
+  .category-link:hover {
+    color: var(--secondary-color);
+    text-decoration: none;
+  }
+
+  /* Latest Posts */
+  .latest-posts {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .section-header h2 {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+
+  .view-all-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: var(--font-weight-semibold);
+    transition: color var(--transition-fast);
+  }
+
+  .view-all-link:hover {
+    color: var(--secondary-color);
+    text-decoration: none;
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .post-card {
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+    height: fit-content;
+  }
+
+  .post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .post-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+  }
+
+  .post-card:hover .post-image img {
+    transform: scale(1.05);
+  }
+
+  .post-overlay {
+    position: absolute;
+    top: var(--space-md);
+    left: var(--space-md);
+  }
+
+  .post-category {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text-primary);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .post-card-content {
+    padding: var(--space-xl);
+  }
+
+  .post-card-content h3 {
+    margin: 0 0 var(--space-md) 0;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+
+  .post-card-content h3 a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .post-card-content h3 a:hover {
+    color: var(--primary-color);
+  }
+
+  .post-card-content p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+    line-height: 1.6;
+  }
+
+  .post-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-md);
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  .post-card-tags {
+    display: flex;
+    gap: var(--space-xs);
+    flex-wrap: wrap;
+  }
+
+  .tag-mini {
+    background: var(--surface);
+    color: var(--text-secondary);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 12px;
+    font-size: 0.75rem;
+  }
+
+  /* Newsletter Signup */
+  .newsletter-signup {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: var(--space-3xl) 0;
+    margin-bottom: var(--space-3xl);
+    border-radius: var(--border-radius-lg);
+  }
+
+  .newsletter-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: center;
+  }
+
+  .newsletter-text h2 {
+    color: white;
+    margin-bottom: var(--space-lg);
+    font-size: 2.5rem;
+  }
+
+  .newsletter-text p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.125rem;
+    margin: 0;
+  }
+
+  .newsletter-form-large .form-group {
+    display: flex;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+
+  .newsletter-form-large input {
+    flex: 1;
+    padding: var(--space-lg);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    background: white;
+    color: var(--text-primary);
+  }
+
+  .newsletter-form-large input::placeholder {
+    color: var(--text-muted);
+  }
+
+  .newsletter-form-large .btn {
+    padding: var(--space-lg) var(--space-xl);
+    background: white;
+    color: var(--primary-color);
+    border: none;
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .newsletter-form-large .btn:hover {
+    background: var(--surface);
+    color: var(--primary-color);
+  }
+
+  .newsletter-privacy {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+  }
+
+  /* About Preview */
+  .about-preview {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: center;
+  }
+
+  .about-text h2 {
+    margin-bottom: var(--space-lg);
+    font-size: 2.5rem;
+  }
+
+  .about-text p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: var(--space-xl);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    transition: all var(--transition-fast);
+  }
+
+  .stat-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-color);
+    margin-bottom: var(--space-sm);
+  }
+
+  .stat-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-medium);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .hero {
+      grid-template-columns: 1fr;
+      text-align: center;
+      padding: var(--space-2xl) 0;
+    }
+
+    .hero-visual {
+      height: 300px;
+    }
+
+    .newsletter-content,
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+
+    .newsletter-content {
+      text-align: center;
     }
   }
-  </script>
 
-  <!-- SEO Plugin -->
-  {% seo %}
-
-  <!-- Google Analytics -->
-  {% if site.google_analytics %}
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '{{ site.google_analytics }}');
-  </script>
-  {% endif %}
-</head>
-
-<body class="{% if page.layout %}{{ page.layout }}{% endif %}">
-  <a href="#main-content" class="sr-only">Skip to main content</a>
-  
-  <header class="site-header">
-    <div class="container">
-      <div class="header-content">
-        <a class="site-title" href="{{ '/' | relative_url }}">
-          {{ site.title | escape }}
-        </a>
-        
-        <nav class="site-nav" id="site-nav">
-          <a class="nav-link {% if page.url == '/' %}active{% endif %}" href="{{ '/' | relative_url }}">Home</a>
-          <a class="nav-link {% if page.url contains '/about' %}active{% endif %}" href="{{ '/about/' | relative_url }}">About</a>
-          
-          <div class="dropdown">
-            <a class="nav-link dropdown-toggle {% if page.url contains '/innovation_tales' %}active{% endif %}" href="{{ '/innovation_tales/' | relative_url }}">Innovation Tales</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="{{ '/innovation_tales/urban-intelligence/' | relative_url }}">Urban Intelligence</a>
-              <a class="dropdown-item" href="{{ '/innovation_tales/gaming/' | relative_url }}">Gaming</a>
-              <a class="dropdown-item" href="{{ '/innovation_tales/space-exploration/' | relative_url }}">Space Exploration</a>
-            </div>
-          </div>
-          
-          <a class="nav-link {% if page.url contains '/archive' %}active{% endif %}" href="{{ '/archive/' | relative_url }}">Archive</a>
-          <a class="nav-link {% if page.url contains '/contact' %}active{% endif %}" href="{{ '/contact/' | relative_url }}">Contact</a>
-        </nav>
-        
-        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" onclick="toggleMobileMenu()">
-          ☰
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main class="main-content" id="main-content">
-    <div class="container">
-      {{ content }}
-    </div>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>About</h3>
-          <p>{{ site.description | escape }}</p>
-          <div class="social-links">
-            {% if site.github_username %}
-            <a href="https://github.com/{{ site.github_username }}" aria-label="GitHub">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-              </svg>
-            </a>
-            {% endif %}
-            {% if site.twitter_username %}
-            <a href="https://twitter.com/{{ site.twitter_username }}" aria-label="Twitter">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-              </svg>
-            </a>
-            {% endif %}
-            {% if site.linkedin_username %}
-            <a href="https://linkedin.com/in/{{ site.linkedin_username }}" aria-label="LinkedIn">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
-            </a>
-            {% endif %}
-          </div>
-        </div>
-        
-        <div class="footer-section">
-          <h3>Categories</h3>
-          <ul>
-            <li><a href="{{ '/innovation_tales/urban-intelligence/' | relative_url }}">Urban Intelligence</a></li>
-            <li><a href="{{ '/innovation_tales/gaming/' | relative_url }}">Gaming</a></li>
-            <li><a href="{{ '/innovation_tales/space-exploration/' | relative_url }}">Space Exploration</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-section">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="{{ '/about/' | relative_url }}">About Me</a></li>
-            <li><a href="{{ '/archive/' | relative_url }}">All Posts</a></li>
-            <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
-            <li><a href="{{ '/feed.xml' | relative_url }}">RSS Feed</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-section">
-          <h3>Newsletter</h3>
-          <p>Subscribe to get notified about new posts and insights.</p>
-          <form class="newsletter-form" action="#" method="post">
-            <input type="email" placeholder="Enter your email" required>
-            <button type="submit" class="btn">Subscribe</button>
-          </form>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; {{ site.time | date: '%Y' }} {{ site.title | escape }}. All rights reserved.</p>
-        <p>Built with Jekyll and hosted on GitHub Pages.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- JavaScript -->
-  <script>
-    // Mobile menu toggle
-    function toggleMobileMenu() {
-      const nav = document.getElementById('site-nav');
-      nav.classList.toggle('open');
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.5rem;
     }
 
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-
-    // Reading progress indicator
-    function updateReadingProgress() {
-      const article = document.querySelector('.post-content');
-      if (!article) return;
-      
-      const articleHeight = article.offsetHeight;
-      const windowHeight = window.innerHeight;
-      const scrolled = window.scrollY;
-      const articleTop = article.offsetTop;
-      
-      const progress = Math.min(
-        Math.max((scrolled - articleTop + windowHeight / 2) / articleHeight, 0),
-        1
-      );
-      
-      document.documentElement.style.setProperty('--reading-progress', progress);
+    .featured-categories h2,
+    .section-header h2,
+    .newsletter-text h2,
+    .about-text h2 {
+      font-size: 2rem;
     }
 
-    // Add reading progress bar
-    if (document.querySelector('.post-content')) {
-      const progressBar = document.createElement('div');
-      progressBar.className = 'reading-progress';
-      progressBar.innerHTML = '<div class="reading-progress-bar"></div>';
-      document.body.appendChild(progressBar);
-      
-      window.addEventListener('scroll', updateReadingProgress);
-      updateReadingProgress();
+    .section-header {
+      flex-direction: column;
+      gap: var(--space-lg);
+      text-align: center;
     }
 
-    // Table of contents generation
-    function generateTOC() {
-      const content = document.querySelector('.post-content');
-      if (!content) return;
-      
-      const headings = content.querySelectorAll('h2, h3, h4');
-      if (headings.length < 3) return;
-      
-      const toc = document.createElement('div');
-      toc.className = 'table-of-contents';
-      toc.innerHTML = '<h3>Table of Contents</h3><ul></ul>';
-      
-      const list = toc.querySelector('ul');
-      
-      headings.forEach((heading, index) => {
-        const id = `heading-${index}`;
-        heading.id = id;
-        
-        const li = document.createElement('li');
-        li.className = `toc-${heading.tagName.toLowerCase()}`;
-        li.innerHTML = `<a href="#${id}">${heading.textContent}</a>`;
-        list.appendChild(li);
-      });
-      
-      content.insertBefore(toc, content.firstChild);
+    .hero-cta {
+      justify-content: center;
     }
 
-    // Initialize TOC for posts
-    if (document.querySelector('.post')) {
-      generateTOC();
+    .posts-grid {
+      grid-template-columns: 1fr;
     }
 
-    // Copy code button
-    function addCopyButtons() {
-      const codeBlocks = document.querySelectorAll('pre code');
-      
-      codeBlocks.forEach(code => {
-        const button = document.createElement('button');
-        button.className = 'copy-code-btn';
-        button.textContent = 'Copy';
-        button.setAttribute('aria-label', 'Copy code to clipboard');
-        
-        button.addEventListener('click', () => {
-          navigator.clipboard.writeText(code.textContent).then(() => {
-            button.textContent = 'Copied!';
-            setTimeout(() => {
-              button.textContent = 'Copy';
-            }, 2000);
-          });
-        });
-        
-        code.parentElement.style.position = 'relative';
-        code.parentElement.appendChild(button);
-      });
+    .categories-grid {
+      grid-template-columns: 1fr;
     }
 
-    // Initialize copy buttons
-    addCopyButtons();
-
-    // Dark mode toggle (if you want to implement this later)
-    function initDarkMode() {
-      const darkModeToggle = document.querySelector('.dark-mode-toggle');
-      if (!darkModeToggle) return;
-      
-      const isDark = localStorage.getItem('darkMode') === 'true';
-      if (isDark) {
-        document.documentElement.classList.add('dark-mode');
-      }
-      
-      darkModeToggle.addEventListener('click', () => {
-        document.documentElement.classList.toggle('dark-mode');
-        localStorage.setItem('darkMode', 
-          document.documentElement.classList.contains('dark-mode')
-        );
-      });
+    .newsletter-form-large .form-group {
+      flex-direction: column;
     }
 
-    // Search functionality (basic implementation)
-    function initSearch() {
-      const searchInput = document.querySelector('.search-input');
-      const searchResults = document.querySelector('.search-results');
-      
-      if (!searchInput || !searchResults) return;
-      
-      let posts = [];
-      
-      // Fetch posts data (you'll need to create a search.json file)
-      fetch('/search.json')
-        .then(response => response.json())
-        .then(data => {
-          posts = data;
-        })
-        .catch(error => console.error('Search data not available:', error));
-      
-      searchInput.addEventListener('input', (e) => {
-        const query = e.target.value.toLowerCase().trim();
-        
-        if (query.length < 2) {
-          searchResults.innerHTML = '';
-          searchResults.style.display = 'none';
-          return;
-        }
-        
-        const results = posts.filter(post => 
-          post.title.toLowerCase().includes(query) ||
-          post.content.toLowerCase().includes(query) ||
-          post.categories.some(cat => cat.toLowerCase().includes(query))
-        ).slice(0, 5);
-        
-        if (results.length > 0) {
-          searchResults.innerHTML = results.map(post => 
-            `<a href="${post.url}" class="search-result-item">
-              <h4>${post.title}</h4>
-              <p>${post.excerpt}</p>
-            </a>`
-          ).join('');
-          searchResults.style.display = 'block';
-        } else {
-          searchResults.innerHTML = '<p class="no-results">No results found</p>';
-          searchResults.style.display = 'block';
-        }
-      });
-      
-      // Hide results when clicking outside
-      document.addEventListener('click', (e) => {
-        if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
-          searchResults.style.display = 'none';
-        }
-      });
+    .stats-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
     }
 
-    // Initialize all features
-    document.addEventListener('DOMContentLoaded', () => {
-      initDarkMode();
-      initSearch();
-    });
-  </script>
+    .element {
+      font-size: 2rem;
+    }
+  }
 
-  <!-- Additional CSS for new features -->
-  <style>
-    .social-links {
-      display: flex;
-      gap: var(--space-md);
-      margin-top: var(--space-lg);
+  @media (max-width: 480px) {
+    .hero {
+      padding: var(--space-xl) 0;
     }
-    
-    .social-links a {
-      color: var(--text-secondary);
-      transition: color var(--transition-fast);
+
+    .hero h1 {
+      font-size: 2rem;
     }
-    
-    .social-links a:hover {
-      color: var(--primary-color);
+
+    .category-card,
+    .post-card {
+      margin: 0 var(--space-md);
     }
-    
-    .newsletter-form {
-      display: flex;
-      gap: var(--space-sm);
-      margin-top: var(--space-lg);
-    }
-    
-    .newsletter-form input {
-      flex: 1;
-      padding: var(--space-sm) var(--space-md);
-      border: 1px solid var(--border);
+
+    .newsletter-signup {
+      margin: 0 var(--space-md) var(--space-3xl) var(--space-md);
       border-radius: var(--border-radius);
-      font-size: 0.9rem;
     }
-    
-    .newsletter-form .btn {
-      padding: var(--space-sm) var(--space-md);
-      font-size: 0.9rem;
-    }
-    
-    .reading-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: rgba(37, 99, 235, 0.1);
-      z-index: 1000;
-    }
-    
-    .reading-progress-bar {
-      height: 100%;
-      background: var(--primary-color);
-      width: calc(var(--reading-progress, 0) * 100%);
-      transition: width 0.1s ease;
-    }
-    
-    .table-of-contents {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--border-radius);
-      padding: var(--space-lg);
-      margin: var(--space-xl) 0;
-    }
-    
-    .table-of-contents ul {
-      list-style: none;
-      padding: 0;
-      margin: var(--space-md) 0 0 0;
-    }
-    
-    .table-of-contents li {
-      margin: var(--space-sm) 0;
-    }
-    
-    .table-of-contents .toc-h3 {
-      margin-left: var(--space-md);
-    }
-    
-    .table-of-contents .toc-h4 {
-      margin-left: var(--space-lg);
-    }
-    
-    .copy-code-btn {
-      position: absolute;
-      top: var(--space-sm);
-      right: var(--space-sm);
-      background: var(--primary-color);
-      color: white;
-      border: none;
-      padding: var(--space-xs) var(--space-sm);
-      border-radius: var(--border-radius);
-      font-size: 0.75rem;
-      cursor: pointer;
+  }
+
+  /* Animation enhancements */
+  .post-card,
+  .category-card,
+  .stat-item {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .post-card:nth-child(1) { animation-delay: 0.1s; }
+  .post-card:nth-child(2) { animation-delay: 0.2s; }
+  .post-card:nth-child(3) { animation-delay: 0.3s; }
+  .post-card:nth-child(4) { animation-delay: 0.4s; }
+  .post-card:nth-child(5) { animation-delay: 0.5s; }
+  .post-card:nth-child(6) { animation-delay: 0.6s; }
+
+  @keyframes fadeInUp {
+    from {
       opacity: 0;
-      transition: opacity var(--transition-fast);
+      transform: translateY(30px);
     }
-    
-    pre:hover .copy-code-btn {
+    to {
       opacity: 1;
+      transform: translateY(0);
     }
-    
-    @media (max-width: 768px) {
-      .newsletter-form {
-        flex-direction: column;
-      }
+  }
+
+  /* Dark mode specific adjustments */
+  @media (prefers-color-scheme: dark) {
+    .hero {
+      background: linear-gradient(135deg, 
+        rgba(37, 99, 235, 0.2) 0%, 
+        rgba(124, 58, 237, 0.2) 50%, 
+        rgba(245, 158, 11, 0.2) 100%);
+    }
+
+    .post-category {
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+    }
+
+    .newsletter-form-large input {
+      background: var(--surface);
+      color: var(--text-primary);
+    }
+  }
+</style>
+
+<script>
+  // Enhanced interactions for homepage
+  document.addEventListener('DOMContentLoaded', function() {
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all animated elements
+    document.querySelectorAll('.post-card, .category-card, .stat-item').forEach(el => {
+      el.style.animationPlayState = 'paused';
+      observer.observe(el);
+    });
+
+    // Enhanced newsletter form
+    const newsletterForm = document.querySelector('.newsletter-form-large');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = this.querySelector('input[type="email"]').value;
+        const button = this.querySelector('button');
+        
+        // Simulate submission
+        button.textContent = 'Subscribing...';
+        button.disabled = true;
+        
+        setTimeout(() => {
+          button.textContent = 'Thank you!';
+          setTimeout(() => {
+            button.textContent = 'Subscribe';
+            button.disabled = false;
+            this.reset();
+          }, 2000);
+        }, 1000);
+      });
+    }
+
+    // Smooth parallax effect for floating elements
+    window.addEventListener('scroll', function() {
+      const scrolled = window.pageYOffset;
+      const elements = document.querySelectorAll('.element');
       
-      .social-links {
-        justify-content: center;
-      }
+      elements.forEach((element, index) => {
+        const speed = (index + 1) * 0.1;
+        element.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * speed * 0.1}deg)`;
+      });
+    });
+
+    // Dynamic stats animation
+    function animateStats() {
+      const statNumbers = document.querySelectorAll('.stat-number');
+      
+      statNumbers.forEach(stat => {
+        const target = parseInt(stat.textContent);
+        let current = 0;
+        const increment = target / 50; // 50 steps
+        
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            stat.textContent = target;
+            clearInterval(timer);
+          } else {
+            stat.textContent = Math.floor(current);
+          }
+        }, 30);
+      });
     }
-  </style>
-</body>
-</html>
+
+    // Trigger stats animation when in view
+    const statsObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateStats();
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const statsGrid = document.querySelector('.stats-grid');
+    if (statsGrid) {
+      statsObserver.observe(statsGrid);
+    }
+  });
+</script>
