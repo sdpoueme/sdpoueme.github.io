@@ -1,0 +1,44 @@
+title: My GitHub Pages Site
+email: your-email@example.com
+description: >-
+  A personal website showcasing my thoughts on innovation, technology, and more.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://sdpoueme.github.io" # the base hostname & protocol for your site
+twitter_username: 
+github_username: sdpoueme
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Navigation menu
+header_pages:
+  - about.md
+  - innovation_tales.md
+  - contact.md
+
+# Collections
+collections:
+  innovation_tales:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Your Name"
+  - scope:
+      path: ""
+      type: "innovation_tales"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
