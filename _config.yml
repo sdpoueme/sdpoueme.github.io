@@ -1,22 +1,46 @@
-title: Serge Poueme - Innovation Tales
+# Site settings
+title: "Serge Poueme - Innovation Tales"
 email: sergepoueme@gmail.com
 description: >-
-  A personal website where I share my thoughts on innovation, technology, and society.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://sdpoueme.github.io" # the base hostname & protocol for your site
-twitter_username: 
+  Exploring the intersection of technology, innovation, and society. 
+  Deep dives into urban intelligence, gaming evolution, and space exploration.
+baseurl: ""
+url: "https://sdpoueme.github.io"
+twitter_username: sergepoueme
 github_username: sdpoueme
+linkedin_username: sergepoueme
+
+# Author information
+author:
+  name: "Serge Poueme"
+  email: "sergepoueme@gmail.com"
+  bio: "Software Engineer & Innovation Enthusiast"
+  avatar: "/assets/images/avatar.jpg"
+  location: "Sainte-Julie, Quebec, CA"
 
 # Build settings
+markdown: kramdown
+highlighter: rouge
 theme: minima
+timezone: America/Montreal
+
+# Plugins
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-compress-images
+
+# Pagination
+paginate: 6
+paginate_path: "/page:num/"
 
 # Navigation menu
 header_pages:
   - about.md
   - innovation_tales.md
+  - archive.md
   - contact.md
 
 # Collections
@@ -24,6 +48,9 @@ collections:
   innovation_tales:
     output: true
     permalink: /:collection/:name/
+  projects:
+    output: true
+    permalink: /projects/:name/
 
 # Defaults
 defaults:
@@ -32,7 +59,9 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author: "Your Name"
+      author: "Serge Poueme"
+      show_excerpts: true
+      comments: true
   - scope:
       path: ""
       type: "innovation_tales"
@@ -40,5 +69,53 @@ defaults:
       layout: "page"
   - scope:
       path: ""
+      type: "projects"
+    values:
+      layout: "project"
+  - scope:
+      path: ""
     values:
       layout: "default"
+
+# SEO and Social
+google_analytics: # Add your GA4 measurement ID
+social:
+  type: Person
+  name: Serge Poueme
+  links:
+    - "https://twitter.com/sergepoueme"
+    - "https://github.com/sdpoueme"
+    - "https://linkedin.com/in/sergepoueme"
+
+# Reading settings
+show_excerpts: true
+excerpt_separator: <!--more-->
+
+# Sass settings
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+
+# Include
+include:
+  - _pages
+
+# Performance
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  startings: []
+  blanklines: false
+  profile: false
