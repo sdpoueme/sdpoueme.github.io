@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Home
+title: Home - Serge Poueme
 menu: true
 ---
 
