@@ -1,399 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}" data-theme="light">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#6366f1">
+
+  <!-- Primary Meta Tags -->
   <title>{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+  <meta name="title" content="{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  <meta name="author" content="{{ page.author | default: site.author.name | escape }}">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
+  <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  <meta property="og:image" content="{{ page.image | default: '/assets/images/og-image.jpg' | absolute_url }}">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="{{ page.url | absolute_url }}">
+  <meta property="twitter:title" content="{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
+  <meta property="twitter:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  <meta property="twitter:image" content="{{ page.image | default: '/assets/images/og-image.jpg' | absolute_url }}">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
-  <!-- INLINE CSS FOR IMMEDIATE FIX -->
-  <style>
-    /* Reset and base styles */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background-color: #fff;
-    }
-
-    /* Container */
-    .wrapper, .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Header */
-    .site-header {
-      background: #fff;
-      border-bottom: 1px solid #e5e7eb;
-      padding: 1rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .site-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #111;
-      text-decoration: none;
-    }
-
-    .site-title:hover {
-      color: #2563eb;
-      text-decoration: none;
-    }
-
-    /* Navigation */
-    .site-nav {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .nav-link {
-      color: #6b7280;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      transition: all 0.2s;
-    }
-
-    .nav-link:hover,
-    .nav-link.active {
-      color: #2563eb;
-      background: rgba(37, 99, 235, 0.1);
-      text-decoration: none;
-    }
-
-    /* Dropdown */
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-toggle::after {
-      content: ' ▼';
-      font-size: 0.75rem;
-      margin-left: 0.5rem;
-    }
-
-    .dropdown-menu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 6px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      min-width: 200px;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-10px);
-      transition: all 0.2s;
-    }
-
-    .dropdown:hover .dropdown-menu {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .dropdown-item {
-      display: block;
-      padding: 0.75rem 1rem;
-      color: #6b7280;
-      text-decoration: none;
-      border-bottom: 1px solid #f3f4f6;
-    }
-
-    .dropdown-item:hover {
-      background: #f9fafb;
-      color: #2563eb;
-      text-decoration: none;
-    }
-
-    .dropdown-item:last-child {
-      border-bottom: none;
-    }
-
-    /* Mobile menu */
-    .mobile-menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    /* Main content */
-    .main-content {
-      padding: 3rem 0;
-      min-height: calc(100vh - 200px);
-    }
-
-    /* Typography */
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: #111;
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #111;
-    }
-
-    h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
-      color: #111;
-    }
-
-    p {
-      margin-bottom: 1.5rem;
-      color: #374151;
-    }
-
-    /* Posts */
-    .post-preview {
-      margin-bottom: 2rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    .post-preview:last-child {
-      border-bottom: none;
-    }
-
-    .post-preview h2,
-    .post-preview h3 {
-      margin-bottom: 0.5rem;
-    }
-
-    .post-preview h2 a,
-    .post-preview h3 a {
-      color: #111;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .post-preview h2 a:hover,
-    .post-preview h3 a:hover {
-      color: #2563eb;
-    }
-
-    .post-meta {
-      color: #6b7280;
-      font-size: 0.875rem;
-      margin-bottom: 1rem;
-    }
-
-    .post-preview p {
-      color: #6b7280;
-      margin-bottom: 1rem;
-    }
-
-    .post-preview a[href*="Read more"],
-    .post-preview a[href$=".html"]:not(h2 a):not(h3 a) {
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .post-preview a[href*="Read more"]:hover {
-      text-decoration: underline;
-    }
-
-    /* Post content */
-    .post-title {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-      text-align: center;
-    }
-
-    .post-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .post-content {
-      font-size: 1.125rem;
-      line-height: 1.8;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .post-content h2 {
-      font-size: 2rem;
-      margin: 2rem 0 1rem 0;
-      color: #111;
-    }
-
-    .post-content h3 {
-      font-size: 1.5rem;
-      margin: 1.5rem 0 1rem 0;
-      color: #111;
-    }
-
-    .post-content ul,
-    .post-content ol {
-      margin-bottom: 1.5rem;
-      padding-left: 2rem;
-    }
-
-    .post-content li {
-      margin-bottom: 0.5rem;
-      color: #374151;
-    }
-
-    .post-content blockquote {
-      border-left: 4px solid #2563eb;
-      padding: 1rem 1.5rem;
-      margin: 2rem 0;
-      background: #f8fafc;
-      border-radius: 6px;
-      font-style: italic;
-    }
-
-    .post-content code {
-      background: #f1f5f9;
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-      font-family: 'Monaco', 'Cascadia Code', monospace;
-      font-size: 0.9em;
-    }
-
-    .post-content pre {
-      background: #1e293b;
-      color: #e2e8f0;
-      padding: 1.5rem;
-      border-radius: 8px;
-      overflow-x: auto;
-      margin: 2rem 0;
-    }
-
-    .post-content pre code {
-      background: none;
-      padding: 0;
-      color: inherit;
-    }
-
-    /* Footer */
-    .site-footer {
-      background: #f8fafc;
-      border-top: 1px solid #e5e7eb;
-      padding: 3rem 0 1rem 0;
-      margin-top: 4rem;
-    }
-
-    .footer-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .footer-section h3 {
-      margin-bottom: 1rem;
-      color: #111;
-    }
-
-    .footer-section ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .footer-section li {
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-section a {
-      color: #6b7280;
-      text-decoration: none;
-    }
-
-    .footer-section a:hover {
-      color: #2563eb;
-    }
-
-    .footer-bottom {
-      text-align: center;
-      padding-top: 2rem;
-      border-top: 1px solid #e5e7eb;
-      color: #9ca3af;
-      font-size: 0.875rem;
-    }
-
-    /* Responsive design */
-    @media (max-width: 768px) {
-      .mobile-menu-toggle {
-        display: block;
-      }
-      
-      .site-nav {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
-        border-top: 1px solid #e5e7eb;
-        flex-direction: column;
-        padding: 1rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
-      
-      .site-nav.open {
-        display: flex;
-      }
-      
-      h1 {
-        font-size: 2rem;
-      }
-      
-      .container,
-      .wrapper {
-        padding: 0 1rem;
-      }
-      
-      .dropdown-menu {
-        position: static;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        box-shadow: none;
-        border: none;
-        margin-top: 0.5rem;
-      }
-    }
-
-    /* Utility classes */
-    .text-center { text-align: center; }
-    .hidden { display: none; }
-  </style>
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   
-  <!-- SEO and meta tags -->
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+
+  <!-- RSS Feed -->
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | relative_url }}">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
+  
+  <!-- SEO -->
   {% seo %}
+
+  <!-- Reading Progress Bar -->
+  <style>
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: rgba(99, 102, 241, 0.1);
+      z-index: 1001;
+    }
+    
+    .reading-progress-bar {
+      height: 100%;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      width: 0%;
+      transition: width 0.1s ease;
+    }
+  </style>
 </head>
 
 <body>
-  <header class="site-header">
+  <!-- Reading Progress Bar -->
+  {% if page.layout == 'post' %}
+  <div class="reading-progress">
+    <div class="reading-progress-bar" id="reading-progress-bar"></div>
+  </div>
+  {% endif %}
+
+  <!-- Skip to main content -->
+  <a href="#main-content" class="sr-only">Skip to main content</a>
+  
+  <!-- Header -->
+  <header class="site-header" id="site-header">
     <div class="container">
       <div class="header-content">
         <a class="site-title" href="{{ '/' | relative_url }}">
@@ -416,57 +101,417 @@
           <a class="nav-link {% if page.url contains '/contact' %}active{% endif %}" href="{{ '/contact/' | relative_url }}">Contact</a>
         </nav>
         
-        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-          ☰
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu">
+          <span id="menu-icon">☰</span>
         </button>
       </div>
     </div>
   </header>
 
-  <main class="main-content">
+  <!-- Main Content -->
+  <main class="main-content" id="main-content">
     <div class="container">
       {{ content }}
     </div>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-content">
         <div class="footer-section">
-          <h3>About</h3>
+          <h3>Innovation Tales</h3>
           <p>{{ site.description | escape }}</p>
+          <div class="social-links">
+            {% if site.github_username %}
+            <a href="https://github.com/{{ site.github_username }}" aria-label="GitHub" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </a>
+            {% endif %}
+            {% if site.twitter_username %}
+            <a href="https://twitter.com/{{ site.twitter_username }}" aria-label="Twitter" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+              </svg>
+            </a>
+            {% endif %}
+            {% if site.linkedin_username %}
+            <a href="https://linkedin.com/in/{{ site.linkedin_username }}" aria-label="LinkedIn" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            {% endif %}
+          </div>
         </div>
         
         <div class="footer-section">
-          <h3>Categories</h3>
+          <h3>Explore</h3>
           <ul>
             <li><a href="{{ '/innovation_tales/urban-intelligence/' | relative_url }}">Urban Intelligence</a></li>
-            <li><a href="{{ '/innovation_tales/gaming/' | relative_url }}">Gaming</a></li>
+            <li><a href="{{ '/innovation_tales/gaming/' | relative_url }}">Gaming Evolution</a></li>
             <li><a href="{{ '/innovation_tales/space-exploration/' | relative_url }}">Space Exploration</a></li>
+            <li><a href="{{ '/archive/' | relative_url }}">All Posts</a></li>
           </ul>
         </div>
         
         <div class="footer-section">
           <h3>Connect</h3>
           <ul>
-            {% if site.github_username %}<li><a href="https://github.com/{{ site.github_username }}">GitHub</a></li>{% endif %}
-            {% if site.twitter_username %}<li><a href="https://twitter.com/{{ site.twitter_username }}">Twitter</a></li>{% endif %}
-            {% if site.linkedin_username %}<li><a href="https://linkedin.com/in/{{ site.linkedin_username }}">LinkedIn</a></li>{% endif %}
+            <li><a href="{{ '/about/' | relative_url }}">About Me</a></li>
+            <li><a href="{{ '/contact/' | relative_url }}">Get in Touch</a></li>
+            <li><a href="{{ '/feed.xml' | relative_url }}">RSS Feed</a></li>
+            <li><a href="#" onclick="toggleTheme(); return false;">Toggle Theme</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Latest</h3>
+          <ul>
+            {% for post in site.posts limit:3 %}
+            <li><a href="{{ post.url | relative_url }}">{{ post.title | truncate: 40 }}</a></li>
+            {% endfor %}
           </ul>
         </div>
       </div>
       
       <div class="footer-bottom">
-        <p>&copy; {{ site.time | date: '%Y' }} {{ site.title | escape }}. All rights reserved.</p>
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.title | escape }}. Built with Jekyll and hosted on GitHub Pages.</p>
       </div>
     </div>
   </footer>
 
+  <!-- Theme Toggle Button -->
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle theme">
+    <span id="theme-icon">🌙</span>
+  </button>
+
+  <!-- JavaScript -->
   <script>
+    // Theme management
+    const themeToggle = document.querySelector('.theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const html = document.documentElement;
+    
+    // Get saved theme or default to light
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+    
+    function toggleTheme() {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    }
+    
+    function updateThemeIcon(theme) {
+      themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
+    }
+
+    // Mobile menu toggle
     function toggleMobileMenu() {
       const nav = document.getElementById('site-nav');
+      const icon = document.getElementById('menu-icon');
       nav.classList.toggle('open');
+      icon.textContent = nav.classList.contains('open') ? '✕' : '☰';
     }
+
+    // Header scroll effect
+    const header = document.getElementById('site-header');
+    let lastScrollTop = 0;
+    
+    window.addEventListener('scroll', function() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      if (scrollTop > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      
+      lastScrollTop = scrollTop;
+    });
+
+    // Reading progress (for posts only)
+    {% if page.layout == 'post' %}
+    const progressBar = document.getElementById('reading-progress-bar');
+    
+    function updateReadingProgress() {
+      const article = document.querySelector('.post-content') || document.querySelector('main');
+      if (!article) return;
+      
+      const articleHeight = article.offsetHeight;
+      const windowHeight = window.innerHeight;
+      const scrolled = window.scrollY;
+      const articleTop = article.offsetTop;
+      
+      const progress = Math.min(
+        Math.max((scrolled - articleTop + windowHeight / 2) / articleHeight, 0),
+        1
+      );
+      
+      if (progressBar) {
+        progressBar.style.width = (progress * 100) + '%';
+      }
+    }
+    
+    window.addEventListener('scroll', updateReadingProgress);
+    updateReadingProgress();
+    {% endif %}
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Animate elements on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe cards and other elements for animation
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.card, .post-card, .post-preview').forEach(el => {
+        observer.observe(el);
+      });
+      
+      // Add external link indicators
+      const externalLinks = document.querySelectorAll('a[href^="http"]:not([href*="' + window.location.hostname + '"])');
+      externalLinks.forEach(link => {
+        if (!link.querySelector('svg')) { // Don't add to social icons
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.innerHTML += ' <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="display: inline; margin-left: 2px; vertical-align: top;"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>';
+        }
+      });
+    });
+
+    // Copy code functionality
+    document.querySelectorAll('pre code').forEach(function(code) {
+      const button = document.createElement('button');
+      button.className = 'copy-code-btn';
+      button.textContent = 'Copy';
+      button.setAttribute('aria-label', 'Copy code to clipboard');
+      
+      button.addEventListener('click', function() {
+        navigator.clipboard.writeText(code.textContent).then(function() {
+          button.textContent = 'Copied!';
+          setTimeout(function() {
+            button.textContent = 'Copy';
+          }, 2000);
+        });
+      });
+      
+      const pre = code.parentElement;
+      pre.style.position = 'relative';
+      pre.appendChild(button);
+    });
   </script>
+
+  <!-- Additional CSS for new features -->
+  <style>
+    .social-links {
+      display: flex;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    .social-links a {
+      color: var(--color-text-secondary);
+      transition: color var(--transition-fast);
+      padding: var(--space-2);
+      border-radius: var(--radius);
+    }
+    
+    .social-links a:hover {
+      color: var(--color-primary);
+      background: var(--color-bg-secondary);
+    }
+    
+    .copy-code-btn {
+      position: absolute;
+      top: var(--space-2);
+      right: var(--space-2);
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      border: none;
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius);
+      font-size: var(--text-xs);
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+    }
+    
+    pre:hover .copy-code-btn {
+      opacity: 1;
+    }
+    
+    /* Enhanced post content styles */
+    .post-content {
+      line-height: 1.8;
+    }
+    
+    .post-content h2,
+    .post-content h3,
+    .post-content h4 {
+      margin-top: var(--space-12);
+      margin-bottom: var(--space-6);
+      position: relative;
+    }
+    
+    .post-content h2::before {
+      content: '';
+      position: absolute;
+      left: -var(--space-6);
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 20px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      border-radius: var(--radius-full);
+    }
+    
+    .post-content blockquote {
+      border-left: 4px solid var(--color-primary);
+      padding: var(--space-6);
+      margin: var(--space-8) 0;
+      background: var(--color-bg-secondary);
+      border-radius: var(--radius-lg);
+      font-style: italic;
+      position: relative;
+    }
+    
+    .post-content blockquote::before {
+      content: '"';
+      font-size: var(--text-6xl);
+      color: var(--color-primary);
+      position: absolute;
+      top: -var(--space-4);
+      left: var(--space-4);
+      font-family: serif;
+      opacity: 0.3;
+    }
+    
+    .post-content code {
+      background: var(--color-bg-tertiary);
+      padding: var(--space-1) var(--space-2);
+      border-radius: var(--radius);
+      font-family: var(--font-mono);
+      font-size: 0.9em;
+      color: var(--color-primary);
+    }
+    
+    .post-content pre {
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+      padding: var(--space-6);
+      border-radius: var(--radius-xl);
+      overflow-x: auto;
+      margin: var(--space-8) 0;
+      box-shadow: var(--shadow);
+    }
+    
+    .post-content pre code {
+      background: none;
+      padding: 0;
+      color: var(--color-text-primary);
+    }
+    
+    .post-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      margin: var(--space-8) 0;
+    }
+    
+    .post-content ul,
+    .post-content ol {
+      margin: var(--space-6) 0;
+      padding-left: var(--space-6);
+    }
+    
+    .post-content li {
+      margin-bottom: var(--space-2);
+    }
+    
+    .post-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-8) 0;
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    
+    .post-content th,
+    .post-content td {
+      padding: var(--space-4);
+      text-align: left;
+      border-bottom: 1px solid var(--color-border);
+    }
+    
+    .post-content th {
+      background: var(--color-bg-secondary);
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+    
+    /* Mobile improvements */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: var(--text-4xl);
+      }
+      
+      .hero p {
+        font-size: var(--text-lg);
+      }
+      
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .social-links {
+        justify-content: center;
+      }
+      
+      .theme-toggle {
+        bottom: var(--space-4);
+        right: var(--space-4);
+      }
+    }
+  </style>
 </body>
 </html>
