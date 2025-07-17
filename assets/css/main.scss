@@ -1010,3 +1010,145 @@ pre:hover .copy-code-btn {
               border-color var(--transition), 
               color var(--transition);
 }
+
+// Additional Layout Fixes - Add this to the end of your main.scss file
+
+// Fix container overflow issues
+.container {
+  overflow-x: hidden;
+}
+
+// Fix hero section on mobile
+.hero {
+  margin: 0;
+  padding: var(--space-16) 0;
+  
+  @media (max-width: 768px) {
+    padding: var(--space-12) 0;
+  }
+}
+
+// Prevent horizontal scrolling
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+// Fix post card grid responsiveness
+.card-grid {
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+// Fix navigation z-index issues
+.site-header {
+  z-index: 1000;
+}
+
+.dropdown-menu {
+  z-index: 1001;
+}
+
+// Fix main content spacing
+.main-content {
+  position: relative;
+  z-index: 1;
+}
+
+// Fix page header spacing
+.page-header {
+  margin-bottom: var(--space-8);
+}
+
+// Fix content wrapper max width
+.content-wrapper {
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+  
+  @media (min-width: 768px) {
+    padding: 0;
+  }
+}
+
+// Fix card content spacing
+.post-card__content {
+  padding: var(--space-6);
+}
+
+.post-card__title a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  
+  &:hover {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+}
+
+// Fix button spacing and appearance
+.btn {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px; // Touch target size
+}
+
+// Fix mobile dropdown
+@media (max-width: 768px) {
+  .dropdown {
+    width: 100%;
+  }
+  
+  .dropdown-toggle {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .dropdown-menu {
+    width: 100%;
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-lg);
+    margin-top: var(--space-2);
+  }
+}
+
+// Fix theme toggle on mobile
+@media (max-width: 480px) {
+  .theme-toggle {
+    width: 48px;
+    height: 48px;
+    bottom: var(--space-4);
+    right: var(--space-4);
+  }
+}
+
+// Ensure proper text wrapping
+* {
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+// Fix newsletter section
+section[style*="background: linear-gradient"] {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  
+  @media (max-width: 768px) {
+    margin-left: calc(-1 * var(--space-4)) !important;
+    margin-right: calc(-1 * var(--space-4)) !important;
+    border-radius: 0;
+  }
+}
