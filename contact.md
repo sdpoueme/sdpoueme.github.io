@@ -1,23 +1,24 @@
 ---
 layout: page
-title: Contact
-permalink: /contact/
-menu: true
+title: Get in Touch
+description: Connect with me to discuss technology, innovation, collaboration opportunities, or just to say hello.
 ---
 
-# Contact Information
+## Let's Connect
 
-Feel free to reach out to me through any of the following channels:
+I'm always interested in connecting with fellow technologists, entrepreneurs, researchers, and anyone passionate about innovation and the future of technology.
 
-## Professional Contact
+## Ways to Reach Me
 
-- **Email**: [your-professional-email@example.com](mailto:your-professional-email@example.com)
-- **LinkedIn**: [Your LinkedIn Profile](https://www.linkedin.com/in/your-profile/)
-- **GitHub**: [Your GitHub Profile](https://github.com/sdpoueme)
+### Professional Contact
 
-## Other Platforms
+- **Email**: [sergepoueme@gmail.com](mailto:sergepoueme@gmail.com)
+- **LinkedIn**: [linkedin.com/in/sergepoueme](https://linkedin.com/in/sergepoueme)
+- **GitHub**: [@sdpoueme](https://github.com/sdpoueme)
 
-- **Twitter**: [@YourTwitterHandle](https://twitter.com/YourTwitterHandle)
-- **Medium**: [Your Medium Profile](https://medium.com/@your-username)
+### What I'd Love to Discuss
 
-I'm always open to discussing new ideas, collaborations, or opportunities in the fields of technology and innovation.
+- **Technology trends** and emerging innovations
+- **Open Source Collaboration opportunities** on interesting projects
+- **Speaking engagements** at conferences or events
+- **Guest writing** opportunities
