@@ -1,0 +1,31 @@
+{% unless page.url == "/" %}
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <ul>
+      <li><a href="{{ '/' | relative_url }}">Home</a></li>
+      
+      {% if page.url contains '/innovation_tales/' %}
+        <li><a href="{{ '/innovation_tales/' | relative_url }}">Topics</a></li>
+        {% if page.url contains '/urban-intelligence' %}
+          <li class="current">Urban Intelligence</li>
+        {% elsif page.url contains '/gaming' %}
+          <li class="current">Gaming</li>
+        {% elsif page.url contains '/space-exploration' %}
+          <li class="current">Space Exploration</li>
+        {% endif %}
+      {% elsif page.url contains '/posts/' %}
+        <li class="current">All Posts</li>
+      {% elsif page.url contains '/about' %}
+        <li class="current">About</li>
+      {% elsif page.url contains '/contact' %}
+        <li class="current">Contact</li>
+      {% elsif page.layout == 'post' %}
+        <li><a href="{{ '/posts/' | relative_url }}">Posts</a></li>
+        <li class="current">{{ page.title | truncate: 40 }}</li>
+      {% else %}
+        <li class="current">{{ page.title | default: "Page" }}</li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+{% endunless %}
