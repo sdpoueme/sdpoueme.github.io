@@ -27,7 +27,7 @@
   <meta property="twitter:image" content="{{ page.image | default: '/assets/images/og-image.jpg' | absolute_url }}">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   
   <!-- Canonical URL -->
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
@@ -87,13 +87,6 @@
 
   <!-- Main Content -->
   <main class="main-content" id="main-content">
-    <div class="container">
-      {{ content }}
-    </div>
-  </main>
-  <!-- Main Content -->
-  <main class="main-content" id="main-content">
-    {% include breadcrumb.html %}
     <div class="container">
       {{ content }}
     </div>

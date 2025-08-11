@@ -1,0 +1,18 @@
+{% unless page.url == "/" %}
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <ul>
+      <li><a href="{{ '/' | relative_url }}">Home</a></li>
+      {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
+      {% for crumb in crumbs offset: 1 %}
+        {% if forloop.last %}
+          <li class="current">{{ page.title | default: crumb | replace:'-',' ' | remove:'.html' | capitalize }}</li>
+        {% else %}
+          {% capture crumb_url %}{% for c in crumbs limit: forloop.index %}{{ c | append: '/' }}{% endfor %}{% endcapture %}
+          <li><a href="{{ crumb_url | relative_url }}">{{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</nav>
+{% endunless %}
