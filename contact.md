@@ -2,6 +2,7 @@
 layout: page
 title: Get in Touch
 description: Connect with me to discuss technology, innovation, collaboration opportunities, or just to say hello.
+permalink: /contact/
 ---
 
 ## Let's Connect

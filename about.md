@@ -2,6 +2,7 @@
 layout: page
 title: About Me
 description: Software engineer passionate about innovation, technology, and exploring how emerging technologies reshape our world.
+permalink: /about/
 ---
 
 ## Hello! I'm Serge 👋
