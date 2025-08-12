@@ -325,6 +325,7 @@ a:hover {
   transform: translateY(-10px);
   transition: all var(--transition);
   overflow: hidden;
+  z-index: 1002;
 }
 
 .dropdown:hover .dropdown-menu {
