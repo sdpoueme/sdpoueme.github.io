@@ -5,35 +5,7 @@ description: Exploring the intersection of technology, data, and urban environme
 permalink: /innovation_tales/urban-intelligence/
 ---
 
-## What is Urban Intelligence?
-
-Urban Intelligence represents the convergence of data science, IoT technology, and urban planning to create cities that are more responsive to citizen needs, environmentally sustainable, and economically efficient.
-
-## Key Topics We Explore
-
-### Smart City Infrastructure
-- IoT sensor networks and data collection
-- Digital twin city models
-- Real-time monitoring and analytics
-- Predictive maintenance systems
-
-### Sustainable Urban Planning
-- Climate-responsive city design
-- Green infrastructure integration
-- Energy-efficient building systems
-- Circular economy implementation
-
-### Citizen-Centered Services
-- Digital governance platforms
-- Accessible public services
-- Community engagement tools
-- Inclusive technology design
-
-### Transportation Innovation
-- Autonomous vehicle integration
-- Smart traffic management
-- Multi-modal transportation systems
-- Last-mile delivery solutions
+Urban Intelligence represents the convergence of data science, IoT technology, and urban planning to create cities that are more responsive to citizen needs, environmentally sustainable, and economically efficient. This field encompasses smart city infrastructure through IoT sensor networks and digital twin models that enable real-time monitoring and predictive maintenance, sustainable urban planning that integrates climate-responsive design and circular economy principles, citizen-centered services including digital governance platforms and inclusive technology solutions, and transportation innovation featuring autonomous vehicles, smart traffic management, and integrated multi-modal systems—collectively transforming how cities operate and serve their communities in the digital age.
 
 ## Featured Articles
 

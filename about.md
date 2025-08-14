@@ -11,10 +11,10 @@ Welcome to Innovation Tales! I'm a software engineer with a passion for understa
 
 ## What I Write About
 
-My focus areas span three key domains where technology is making the biggest impact:
+My interests  span three key domains where technology is making the biggest impact:
 
 ### 🏙️ Urban Intelligence
-I dive deep into smart cities, urban planning, and how technology creates more livable, sustainable environments. From IoT sensor networks to digital twin city models, I explore how data and intelligent systems are transforming urban life.
+I love to dive deep into smart cities, urban planning, and how technology creates more livable, sustainable environments. From IoT sensor networks to digital twin city models, I explore how data and intelligent systems are transforming urban life.
 
 ### 🎮 Gaming Evolution  
 Gaming isn't just entertainment—it's a testing ground for the future of human-computer interaction. I analyze how virtual worlds, interactive entertainment, and gaming technologies are pioneering new forms of digital experience.
@@ -22,28 +22,13 @@ Gaming isn't just entertainment—it's a testing ground for the future of human-
 ### 🚀 Space Exploration
 The new space age is here, driven by breakthrough technologies and commercial innovation. I cover the discoveries, missions, and technologies that are expanding humanity's presence beyond Earth.
 
-## My Background
-
-As a software engineer, I bring a technical perspective to innovation analysis. I'm particularly interested in:
-
-- **Systems thinking** - How different technologies interconnect and influence each other
-- **Business impact** - How innovations translate into real-world value and societal change  
-- **Future trends** - What emerging patterns tell us about where we're heading
-
 ## Why Innovation Tales?
 
-Every technological breakthrough has a story—from the initial spark of inspiration to the challenges of implementation and the unexpected consequences of adoption. I believe these stories matter because they help us understand not just what technology can do, but what it should do.
+In 2024, I started writing articles for my employer's newsletter. At that time, I was working in e-commerce and my focus was point-of-sales, payments, and merchandising technologies. I wrote an article about the "[Quiet Revolution in Mobile Commerce](https://www.linkedin.com/pulse/20131001174457-10904058-the-start-of-a-quiet-revolution-in-mobile-commerce/)" (Rajat Taneja, ex Executive VP and CTO at Electronic Arts). 
 
-Innovation isn't just about the latest gadgets or apps. It's about solving complex human challenges, creating new possibilities, and sometimes fundamentally changing how we live and work.
+This was the first article of a series exploring several topics such as machine-to-machine communications and location intelligence. While my [wordpress website](https://innovationtales.wordpress.com/2011/10/05/facebook-timeline-and-lifes-memories/) is no longer available, there have been many disruptions in the technology space and our societies. I believ the recent developments around Artificial Intelligence and Space Exploration are a unique opportunity to start a deep reflection on how humans will interact with technology in the future. 
 
-## My Approach
-
-I aim to provide:
-
-- **Deep analysis** rather than surface-level news coverage
-- **Multiple perspectives** on complex technological issues
-- **Practical insights** that connect innovation to real-world impact
-- **Clear explanations** that make complex topics accessible
+Innovation Tales is the results of my perspectives on our current world and a projection in the future. 
 
 ## Let's Connect
 

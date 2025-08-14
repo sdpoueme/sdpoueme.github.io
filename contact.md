@@ -7,7 +7,7 @@ permalink: /contact/
 
 ## Let's Connect
 
-I'm always interested in connecting with fellow technologists, entrepreneurs, researchers, and anyone passionate about innovation and the future of technology.
+I'm always interested in connecting with fellow technologists, entrepreneurs, researchers, and anyone passionate about innovation and the future of human societies.
 
 ## Ways to Reach Me
 
