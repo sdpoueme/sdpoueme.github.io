@@ -56,22 +56,3 @@ We're experiencing a new space age renaissance driven by breakthrough technologi
   </div>
 {% endif %}
 </div>
-
-## Why Space Exploration Matters
-
-Space exploration drives technological innovation, scientific discovery, and international cooperation. The technologies developed for space missions—from GPS to water purification systems—improve life on Earth while expanding our cosmic perspective.
-
-### Technological Innovation
-Space missions demand extreme reliability, efficiency, and innovation. These requirements push the boundaries of materials science, computing, robotics, and energy systems.
-
-### Scientific Understanding
-Each mission expands our knowledge of physics, chemistry, biology, and planetary science, often revealing unexpected discoveries that revolutionize our understanding of the universe.
-
-### Economic Opportunity
-The space economy is projected to exceed $1 trillion by 2040, creating new industries and opportunities while solving Earth-based challenges through space-based solutions.
-
-<div style="background: var(--color-bg-secondary); padding: var(--space-8); border-radius: var(--radius-xl); margin: var(--space-12) 0; text-align: center;">
-  <h3 style="margin-bottom: var(--space-4);">Explore the Final Frontier</h3>
-  <p style="color: var(--color-text-secondary); margin-bottom: var(--space-6);">Stay updated on the latest space missions, discoveries, and technological breakthroughs.</p>
-  <a href="{{ '/contact/' | relative_url }}" class="btn btn--primary">Subscribe to Updates</a>
-</div>

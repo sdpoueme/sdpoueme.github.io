@@ -54,19 +54,3 @@ Urban Intelligence represents the convergence of data science, IoT technology, a
   </div>
 {% endif %}
 </div>
-
-## Why Urban Intelligence Matters
-
-As more than half of the world's population now lives in cities—a figure projected to reach 68% by 2050—the need for intelligent urban systems has never been more critical. Urban Intelligence isn't just about deploying more sensors or collecting more data; it's about creating cities that can adapt, learn, and respond to the complex challenges of modern urban life.
-
-### The Challenge
-Cities face unprecedented challenges: climate change, resource scarcity, aging infrastructure, and growing social inequality. Traditional approaches to urban management are no longer sufficient.
-
-### The Opportunity  
-By integrating digital technologies with urban planning and governance, we can create cities that are more resilient, sustainable, and livable for all residents.
-
-<div style="background: var(--color-bg-secondary); padding: var(--space-8); border-radius: var(--radius-xl); margin: var(--space-12) 0; text-align: center;">
-  <h3 style="margin-bottom: var(--space-4);">Stay Updated on Urban Intelligence</h3>
-  <p style="color: var(--color-text-secondary); margin-bottom: var(--space-6);">Get notified when new articles on smart cities and urban technology are published.</p>
-  <a href="{{ '/contact/' | relative_url }}" class="btn btn--primary">Subscribe to Updates</a>
-</div>

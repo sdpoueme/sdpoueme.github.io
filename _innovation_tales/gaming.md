@@ -54,19 +54,3 @@ Gaming has transformed from simple arcade entertainment into sophisticated virtu
   </div>
 {% endif %}
 </div>
-
-## Why Gaming Evolution Matters
-
-Gaming has become the largest entertainment industry globally, surpassing movies and music combined. But its impact extends far beyond entertainment—gaming technologies drive innovation in education, healthcare, training, and social interaction.
-
-### From Entertainment to Platform
-Modern games serve as social platforms, economic systems, and creative tools. They're laboratories for testing new forms of human-computer interaction and virtual collaboration.
-
-### Technological Innovation
-Gaming pushes the boundaries of what's possible with computer graphics, AI, networking, and user interface design. Many technologies we use daily originated in gaming.
-
-<div style="background: var(--color-bg-secondary); padding: var(--space-8); border-radius: var(--radius-xl); margin: var(--space-12) 0; text-align: center;">
-  <h3 style="margin-bottom: var(--space-4);">Join the Gaming Innovation Discussion</h3>
-  <p style="color: var(--color-text-secondary); margin-bottom: var(--space-6);">Get insights on the latest trends in gaming technology and virtual worlds.</p>
-  <a href="{{ '/contact/' | relative_url }}" class="btn btn--primary">Subscribe to Updates</a>
-</div>
