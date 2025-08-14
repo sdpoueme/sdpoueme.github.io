@@ -24,11 +24,11 @@ The new space age is here, driven by breakthrough technologies and commercial in
 
 ## Why Innovation Tales?
 
-In 2024, I started writing articles for my employer's newsletter. At that time, I was working in e-commerce and my focus was point-of-sales, payments, and merchandising technologies. I wrote an article about the "[Quiet Revolution in Mobile Commerce](https://www.linkedin.com/pulse/20131001174457-10904058-the-start-of-a-quiet-revolution-in-mobile-commerce/)" (Rajat Taneja, ex Executive VP and CTO at Electronic Arts). 
+In 2024, I started writing articles for my employer's newsletter. At that time, I was working in e-commerce with a focus on point-of-sale, payments, and merchandising technologies. I wrote an article about the "[Quiet Revolution in Mobile Commerce](https://www.linkedin.com/pulse/20131001174457-10904058-the-start-of-a-quiet-revolution-in-mobile-commerce/)" (Rajat Taneja, former Executive VP and CTO at Electronic Arts).
 
-This was the first article of a series exploring several topics such as machine-to-machine communications and location intelligence. While my [wordpress website](https://innovationtales.wordpress.com/2011/10/05/facebook-timeline-and-lifes-memories/) is no longer available, there have been many disruptions in the technology space and our societies. I believ the recent developments around Artificial Intelligence and Space Exploration are a unique opportunity to start a deep reflection on how humans will interact with technology in the future. 
+This was the first article in a series exploring several topics such as machine-to-machine communications and location intelligence. While my [WordPress website](https://innovationtales.wordpress.com/2011/10/05/facebook-timeline-and-lifes-memories/) is no longer available, there have been many disruptions in the technology space and our societies. I believe the recent developments around Artificial Intelligence and Space Exploration present a unique opportunity to start a deep reflection on how humans will interact with technology in the future.
 
-Innovation Tales is the results of my perspectives on our current world and a projection in the future. 
+Innovation Tales is the result of my perspectives on our current world and a projection into the future.
 
 ## Let's Connect
 
