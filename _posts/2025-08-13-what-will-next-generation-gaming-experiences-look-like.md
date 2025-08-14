@@ -42,8 +42,6 @@ The genuinely innovative elements distinguishing next-generation gaming include:
 <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Gaming console controllers arranged for cross-platform play" style="width: 100%; max-width: 800px; height: auto; border-radius: var(--radius-xl); margin: var(--space-8) 0;">
 *Photo by Nikita Kachanovsky on Unsplash*
 
-*Note: For specific game screenshots or branded content, please refer to the respective game publishers' media kits and usage guidelines. Epic Games provides official Fortnite media assets through their press center for editorial use.*
-
 This platform approach requires robust cloud infrastructure to maintain game progression, state synchronization, and player data across multiple clients. The technical challenge is immense: players must seamlessly switch between devices mid-session while preserving complex game states and social interactions.
 
 ## Economic and Social Transformation
