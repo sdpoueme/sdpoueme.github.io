@@ -2,29 +2,31 @@
 layout: page
 title: About
 show_title: true
-subtitle: "Software engineer · Montréal"
+subtitle: "Proud son. Time & space traveler."
 permalink: /about/
 ---
 
-I am Serge Poueme—a software engineer drawn to the places where technology meets the structure of cities, the logic of intelligent systems, and the long arc of societal change.
+I am Serge Poueme — a father, a husband, a son, a brother. Everything else comes after that.
 
-Born and raised in Yaoundé, I moved to Montréal to study engineering — and stayed. I hold a Master of Engineering in Industrial Engineering from Polytechnique Montréal. I have spent years thinking about how infrastructure becomes invisible when it works well, and what it takes to build things that endure.
+I was born and raised in Yaoundé, Cameroon. I moved to Montréal to study engineering — a Master's in Industrial Engineering at Polytechnique Montréal — and stayed. But the degree is one thread among many. I am equally shaped by music, by cinema, by the memory of my grandmother's house lit by a single oil lamp, and by the conviction that the world can be built better than we found it.
 
-## What I work on
+## What I do
 
-My professional life sits at the intersection of urban systems, artificial intelligence, and software architecture. I have built cadastral platforms, designed IoT sensor networks for cities, and deployed large language models as personal assistants. The common thread is a belief that well-designed systems should be quiet—working correctly without demanding attention.
+I write. I have been writing since I was a teenager — poems, novels, essays — most of which remain unpublished. This site is where some of that work will eventually find its form. In parallel, I write software. I build platforms for urban infrastructure — cadastral systems, IoT sensor networks, AI agents that orchestrate quietly in the background. The common thread across both is the same: building things that endure.
 
-## Family
+I have been publishing online since 2008 — first about Pan-African cinema with Huguette Yere on AferkiwVidi, then speculative fiction preludes on Innovation Tales, now the essays and technical reflections you find here. But the writing started long before that.
 
-Family is at the centre of everything. I am a father and a husband, and much of what I build is motivated by a simple question: what will still matter when my children inherit it? My father, Emmanuel Poueme, spent 36 years in Cameroon's public service — a career measured in decades, not quarters. He taught me that discipline and persistence are not separate from love; they are expressions of it. Our family's roots trace back through four royal chefferies in the West Region of Cameroon — a lineage I have documented in structured data as an act of preservation.
+## What I care about
 
-## Why I write here
+Family. Love. Work. Helping others. Peace. In that order.
 
-I have been writing online since 2008 — first with AferkiwVidi, a Pan-African cinema blog co-created with Huguette Yere, then Innovation Tales on WordPress in 2011, and now here. The medium has changed; the impulse has not.
+My father, Emmanuel Poueme, spent 36 years in Cameroon's public service. He is my first role model — for his sense of family and his values. I documented his career and our family's genealogy across four royal chefferies of the Bamiléké highlands because some things deserve to outlive the people who carry them.
 
-I write here because some ideas deserve a slower medium than a feed. A blog post is not ephemeral; it compounds. Each essay is numbered because I think of this site as a growing volume, not a stream. The Roman numerals are a small gesture toward permanence.
+I listen to music constantly. I watch films. I follow space exploration. I think about how cities are built and how they fail. I travel — not always physically, but always in curiosity.
 
-I chose GitHub Pages deliberately. A repository does not expire when a hosting plan lapses. It persists alongside the code, the genealogies, and the ideas it carries.
+## Why this site exists
+
+I write here because some ideas deserve a slower medium than a feed. Each essay is numbered because I think of this site as a growing volume, not a stream. I chose GitHub Pages deliberately — a repository does not expire when a hosting plan lapses.
 
 ## Contact
 
