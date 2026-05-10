@@ -1,121 +1,55 @@
-# Site settings
-title: "Serge Poueme - Innovation Tales"
-email: sergepoueme@gmail.com
-description: >-
-  Exploring the intersection of technology, innovation, and society. 
-  Deep dives into urban intelligence, gaming evolution, and space exploration.
-baseurl: ""
+# Site Settings
+title: "Serge Poueme"
+description: "Writing on technology, cities, and the systems that connect them."
 url: "https://sdpoueme.github.io"
-twitter_username: sergepoueme
-github_username: sdpoueme
-linkedin_username: sergepoueme
+baseurl: ""
+author: "Serge Poueme"
+email: "sergepoueme@gmail.com"
+lang: "en"
 
-# Author information
-author:
-  name: "Serge Poueme"
-  email: "sergepoueme@gmail.com"
-  bio: "Software Engineer & Innovation Enthusiast"
-  avatar: "/assets/images/avatar.jpg"
-  location: "Sainte-Julie, Quebec, CA"
-
-# Build settings
+# Build Settings
 markdown: kramdown
-highlighter: rouge
-theme: minima
-timezone: America/Montreal
-
-# Plugins
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-sitemap
-  - jekyll-paginate
-  - jekyll-compress-images
-
-# Pagination
-paginate: 6
-paginate_path: "/page:num/"
-
-# Navigation menu
-header_pages:
-  - about.md
-  - innovation_tales.md
-  - archive.md
-  - contact.md
+permalink: /:collection/:title/
+sass:
+  style: compressed
 
 # Collections
 collections:
-  innovation_tales:
+  writing:
     output: true
-    permalink: /:collection/:name/
-  projects:
+    permalink: /writing/:title/
+  technology:
     output: true
-    permalink: /projects/:name/
+    permalink: /technology/:title/
 
-# Defaults
+# Default front matter
 defaults:
   - scope:
       path: ""
-      type: "posts"
+      type: "writing"
     values:
       layout: "post"
-      author: "Serge Poueme"
-      show_excerpts: true
-      comments: true
+      collection_label: "Writing · Écriture"
   - scope:
       path: ""
-      type: "innovation_tales"
+      type: "technology"
+    values:
+      layout: "post"
+      collection_label: "Technology · Technologie"
+  - scope:
+      path: ""
+      type: "pages"
     values:
       layout: "page"
-  - scope:
-      path: ""
-      type: "projects"
-    values:
-      layout: "project"
-  - scope:
-      path: ""
-    values:
-      layout: "default"
 
-# SEO and Social
-google_analytics: # Add your GA4 measurement ID
-social:
-  type: Person
-  name: Serge Poueme
-  links:
-    - "https://twitter.com/sergepoueme"
-    - "https://github.com/sdpoueme"
-    - "https://linkedin.com/in/sergepoueme"
-
-# Reading settings
-show_excerpts: true
-excerpt_separator: <!--more-->
-
-# Sass settings
-sass:
-  sass_dir: _sass
-  style: compressed
-
-# Exclude from processing
+# Exclude from build
 exclude:
   - Gemfile
   - Gemfile.lock
-  - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
   - README.md
+  - vendor
 
-# Include
-include:
-  - _pages
-
-# Performance
-compress_html:
-  clippings: all
-  comments: all
-  endings: all
-  startings: []
-  blanklines: false
-  profile: false
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap

@@ -1,0 +1,35 @@
+{% comment %}
+  Post list component.
+  Usage: {% include post-list.html posts=site.writing limit=4 %}
+  Parameters:
+    posts  - collection to iterate
+    limit  - max posts to show (optional, default: all)
+{% endcomment %}
+
+{% assign roman = "I,II,III,IV,V,VI,VII,VIII,IX,X,XI,XII,XIII,XIV,XV,XVI,XVII,XVIII,XIX,XX" | split: "," %}
+{% assign posts = include.posts %}
+{% if include.limit %}
+  {% assign posts = posts | slice: 0, include.limit %}
+{% endif %}
+{% assign total = posts | size %}
+
+<ul class="post-list">
+  {% for post in posts %}
+    {% assign numeral_index = total | minus: forloop.index %}
+    <li>
+      <a href="{{ post.url | relative_url }}">
+        <div class="post-number">{{ roman[numeral_index] }}</div>
+        <div class="post-title">{{ post.title }}</div>
+        {% if post.excerpt_text %}
+          <div class="post-excerpt">{{ post.excerpt_text }}</div>
+        {% elsif post.excerpt %}
+          <div class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 60 }}</div>
+        {% endif %}
+        <div class="post-meta">
+          {% if post.tag %}<span class="tag">{{ post.tag }}</span>{% endif %}
+          {% if post.season %}<span>{{ post.season }}</span>{% endif %}
+        </div>
+      </a>
+    </li>
+  {% endfor %}
+</ul>

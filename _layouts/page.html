@@ -2,52 +2,17 @@
 layout: default
 ---
 
-<div class="content-wrapper">
-  <article class="page">
-    <header class="page-header" style="text-align: center; margin-bottom: var(--space-12);">
-      <h1 style="font-size: var(--text-5xl); margin-bottom: var(--space-6); background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">{{ page.title | escape }}</h1>
-      {% if page.description %}
-      <p style="font-size: var(--text-lg); color: var(--color-text-secondary); max-width: 600px; margin: 0 auto;">{{ page.description }}</p>
+<section class="page">
+  {% if page.show_title %}
+    <header class="page-header">
+      <h1 class="page-title">{{ page.title }}</h1>
+      {% if page.subtitle %}
+        <p class="page-subtitle">{{ page.subtitle }}</p>
       {% endif %}
     </header>
+  {% endif %}
 
-    <div class="page-content">
-      {{ content }}
-    </div>
-  </article>
-</div>
-
-<style>
-  .page-header {
-    border-bottom: 1px solid var(--color-border);
-    padding-bottom: var(--space-8);
-    margin-bottom: var(--space-12);
-  }
-  
-  .page-content {
-    font-size: var(--text-lg);
-    line-height: 1.8;
-  }
-  
-  .page-content h2 {
-    margin-top: var(--space-12);
-    margin-bottom: var(--space-6);
-    color: var(--color-text-primary);
-  }
-  
-  .page-content h3 {
-    margin-top: var(--space-8);
-    margin-bottom: var(--space-4);
-    color: var(--color-text-primary);
-  }
-  
-  .page-content ul {
-    margin: var(--space-6) 0;
-    padding-left: var(--space-6);
-  }
-  
-  .page-content li {
-    margin-bottom: var(--space-2);
-    color: var(--color-text-secondary);
-  }
-</style>
+  <div class="page-content">
+    {{ content }}
+  </div>
+</section>

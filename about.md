@@ -1,47 +1,31 @@
 ---
 layout: page
-title: About Me
-description: Software engineer passionate about innovation, technology, and exploring how emerging technologies reshape our world.
+title: About
+show_title: true
+subtitle: "Software engineer · Montréal"
 permalink: /about/
 ---
 
-## Hello! I'm Serge 👋
+I am Serge Poueme—a software engineer drawn to the places where technology meets the structure of cities, the logic of intelligent systems, and the long arc of societal change.
 
-Welcome to Innovation Tales! I'm a software engineer with a passion for understanding how emerging technologies reshape our world. Through this blog, I explore the fascinating intersection of technology and society.
+Born in Foumbot, raised between Yaoundé and Montréal, I have spent years thinking about how infrastructure becomes invisible when it works well, and what it takes to build things that endure.
 
-## What I Write About
+## What I work on
 
-My interests  span three key domains where technology is making the biggest impact:
+My professional life sits at the intersection of urban systems, artificial intelligence, and software architecture. I have built cadastral platforms, designed IoT sensor networks for cities, and deployed large language models as personal assistants. The common thread is a belief that well-designed systems should be quiet—working correctly without demanding attention.
 
-### 🏙️ Urban Intelligence
-I love to dive deep into smart cities, urban planning, and how technology creates more livable, sustainable environments. From IoT sensor networks to digital twin city models, I explore how data and intelligent systems are transforming urban life.
+## Why I write here
 
-### 🎮 Gaming Evolution  
-Gaming isn't just entertainment—it's a testing ground for the future of human-computer interaction. I analyze how virtual worlds, interactive entertainment, and gaming technologies are pioneering new forms of digital experience.
+I write here because some ideas deserve a slower medium than a feed. A blog post is not ephemeral; it compounds. Each essay is numbered because I think of this site as a growing volume, not a stream. The Roman numerals are a small gesture toward permanence.
 
-### 🚀 Space Exploration
-The new space age is here, driven by breakthrough technologies and commercial innovation. I cover the discoveries, missions, and technologies that are expanding humanity's presence beyond Earth.
+I chose GitHub Pages deliberately. A repository does not expire when a hosting plan lapses. It persists alongside the code, the genealogies, and the ideas it carries.
 
-## Why Innovation Tales?
+## Background
 
-In 2024, I started writing articles for my employer's newsletter. At that time, I was working in e-commerce with a focus on point-of-sale, payments, and merchandising technologies. I wrote an article about the "[Quiet Revolution in Mobile Commerce](https://www.linkedin.com/pulse/20131001174457-10904058-the-start-of-a-quiet-revolution-in-mobile-commerce/)" (Rajat Taneja, former Executive VP and CTO at Electronic Arts).
+I hold degrees in software engineering and have worked across Cameroon, France, and Canada. My family's roots trace back through four royal chefferies in the West Region of Cameroon—a lineage I have documented in structured data as an act of preservation.
 
-This was the first article in a series exploring several topics such as machine-to-machine communications and location intelligence. While my [WordPress website](https://innovationtales.wordpress.com/2011/10/05/facebook-timeline-and-lifes-memories/) is no longer available, there have been many disruptions in the technology space and our societies. I believe the recent developments around Artificial Intelligence and Space Exploration present a unique opportunity to start a deep reflection on how humans will interact with technology in the future.
+## Contact
 
-Innovation Tales is the result of my perspectives on our current world and a projection into the future.
+If something resonates, I welcome the conversation: [sergepoueme@gmail.com](mailto:sergepoueme@gmail.com)
 
-## Let's Connect
-
-I love discussing technology, innovation, and the future. Whether you're a fellow engineer, entrepreneur, researcher, or simply someone curious about how technology shapes our world, I'd love to hear from you.
-
-- **Email**: [sergepoueme@gmail.com](mailto:sergepoueme@gmail.com)
-- **GitHub**: [@sdpoueme](https://github.com/sdpoueme)
-- **LinkedIn**: [linkedin.com/in/sergepoueme](https://linkedin.com/in/sergepoueme)
-
-## About This Site
-
-This blog is built with Jekyll and hosted on GitHub Pages. It's designed to be fast, accessible, and focused on the content. The source code is open and available on [GitHub](https://github.com/sdpoueme/sdpoueme.github.io).
-
----
-
-*Thanks for reading! If you find value in these explorations of innovation and technology, consider [subscribing]({{ '/contact/' | relative_url }}) to stay updated on new articles.*
+You can also find me on [GitHub](https://github.com/sdpoueme) and [LinkedIn](https://linkedin.com/in/sergepoueme).

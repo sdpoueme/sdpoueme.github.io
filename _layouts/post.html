@@ -2,181 +2,29 @@
 layout: default
 ---
 
-{% include breadcrumb.html %}
+<article class="post">
+  <header class="post-header">
+    {% if page.number %}<div class="post-number">{{ page.number }}</div>{% endif %}
+    <h1 class="post-title">{{ page.title }}</h1>
+    <div class="post-meta">
+      {% if page.tag %}<span class="tag">{{ page.tag }}</span>{% endif %}
+      {% if page.season %}<span>{{ page.season }}</span>{% endif %}
+    </div>
+  </header>
 
-<div class="content-wrapper">
-  <article class="post">
-    <header class="post-header" style="text-align: center; margin-bottom: var(--space-12); padding-bottom: var(--space-8); border-bottom: 1px solid var(--color-border);">
-      {% if page.categories %}
-      <div style="margin-bottom: var(--space-4);">
-        {% for category in page.categories %}
-          {% assign category_name = category | replace: '-', ' ' | capitalize %}
-          <span class="tag">{{ category_name }}</span>
-        {% endfor %}
-      </div>
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <footer class="post-footer">
+    <div class="divider"><hr></div>
+    <nav class="post-nav">
+      {% if page.previous %}
+        <a href="{{ page.previous.url | relative_url }}" class="post-nav-prev">← {{ page.previous.title }}</a>
       {% endif %}
-      
-      <h1 style="font-size: var(--text-5xl); font-weight: 800; letter-spacing: -0.025em; margin-bottom: var(--space-6); line-height: 1.1;">{{ page.title | escape }}</h1>
-      
-      <div style="display: flex; justify-content: center; align-items: center; gap: var(--space-6); flex-wrap: wrap; color: var(--color-text-muted); font-size: var(--text-sm); margin-bottom: var(--space-6);">
-        <div style="display: flex; align-items: center; gap: var(--space-2);">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-          </svg>
-          <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
-        </div>
-        
-        {% if page.author %}
-        <div style="display: flex; align-items: center; gap: var(--space-2);">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-          </svg>
-          <span>{{ page.author }}</span>
-        </div>
-        {% endif %}
-        
-        <div style="display: flex; align-items: center; gap: var(--space-2);">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-          </svg>
-          <span>{{ content | number_of_words | divided_by: 200 | ceil }} min read</span>
-        </div>
-      </div>
-      
-      {% if page.excerpt %}
-      <div style="font-size: var(--text-lg); color: var(--color-text-secondary); max-width: 600px; margin: 0 auto; line-height: 1.6;">
-        {{ page.excerpt | strip_html }}
-      </div>
+      {% if page.next %}
+        <a href="{{ page.next.url | relative_url }}" class="post-nav-next">{{ page.next.title }} →</a>
       {% endif %}
-    </header>
-
-    {% if page.image %}
-    <div style="margin-bottom: var(--space-12); border-radius: var(--radius-2xl); overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
-      <img src="{{ page.image | relative_url }}" alt="{{ page.title | escape }}" style="width: 100%; height: auto; display: block;">
-    </div>
-    {% endif %}
-
-    <div class="post-content">
-      {{ content }}
-    </div>
-
-    {% if page.tags %}
-    <div style="margin-top: var(--space-12); padding-top: var(--space-8); border-top: 1px solid var(--color-border);">
-      <h4 style="margin-bottom: var(--space-4); color: var(--color-text-primary);">Tags:</h4>
-      <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
-        {% for tag in page.tags %}
-          <span class="tag">#{{ tag }}</span>
-        {% endfor %}
-      </div>
-    </div>
-    {% endif %}
-  </article>
-
-  <!-- Post Navigation -->
-  {% if page.previous.url or page.next.url %}
-  <nav style="margin-top: var(--space-16); padding-top: var(--space-8); border-top: 1px solid var(--color-border);">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-6);">
-      {% if page.previous.url %}
-      <div>
-        <a href="{{ page.previous.url | relative_url }}" style="display: block; padding: var(--space-6); background: var(--color-bg-secondary); border-radius: var(--radius-xl); text-decoration: none; border: 1px solid var(--color-border); transition: all var(--transition-fast);" onmouseover="this.style.borderColor='var(--color-primary)'" onmouseout="this.style.borderColor='var(--color-border)'">
-          <div style="font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: var(--space-2);">← Previous Post</div>
-          <div style="font-weight: 600; color: var(--color-text-primary);">{{ page.previous.title }}</div>
-        </a>
-      </div>
-      {% endif %}
-      
-      {% if page.next.url %}
-      <div>
-        <a href="{{ page.next.url | relative_url }}" style="display: block; padding: var(--space-6); background: var(--color-bg-secondary); border-radius: var(--radius-xl); text-decoration: none; border: 1px solid var(--color-border); transition: all var(--transition-fast); text-align: right;" onmouseover="this.style.borderColor='var(--color-primary)'" onmouseout="this.style.borderColor='var(--color-border)'">
-          <div style="font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: var(--space-2);">Next Post →</div>
-          <div style="font-weight: 600; color: var(--color-text-primary);">{{ page.next.title }}</div>
-        </a>
-      </div>
-      {% endif %}
-    </div>
-  </nav>
-  {% endif %}
-
-  <!-- Related Posts -->
-  {% assign related_posts = site.related_posts | where_exp: "post", "post.url != page.url" | limit: 3 %}
-  {% if related_posts.size == 0 %}
-    {% assign related_posts = site.posts | where_exp: "post", "post.url != page.url" | limit: 3 %}
-  {% endif %}
-  
-  {% if related_posts.size > 0 %}
-  <section style="margin-top: var(--space-20);">
-    <h3 style="text-align: center; margin-bottom: var(--space-12); font-size: var(--text-3xl);">Related Articles</h3>
-    <div class="card-grid">
-      {% for post in related_posts %}
-      <div class="post-card">
-        {% if post.image %}
-        <div class="post-card__image">
-          <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy">
-        </div>
-        {% else %}
-        <div class="post-card__image" style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); display: flex; align-items: center; justify-content: center; color: white; font-size: var(--text-2xl);">
-          {% if post.categories contains 'urban-intelligence' %}🏙️
-          {% elsif post.categories contains 'gaming' %}🎮
-          {% elsif post.categories contains 'space-exploration' %}🚀
-          {% else %}💡
-          {% endif %}
-        </div>
-        {% endif %}
-        
-        <div class="post-card__content">
-          <div class="post-card__meta">
-            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
-            <span>{{ post.content | number_of_words | divided_by: 200 | ceil }} min read</span>
-          </div>
-          
-          <h4 class="post-card__title">
-            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-          </h4>
-          
-          <p class="post-card__excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
-          
-          {% if post.tags %}
-          <div class="post-card__tags">
-            {% for tag in post.tags limit:2 %}
-              <span class="tag">#{{ tag }}</span>
-            {% endfor %}
-          </div>
-          {% endif %}
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </section>
-  {% endif %}
-</div>
-
-<style>
-  /* Post-specific styling */
-  .post-header h1 {
-    @media (max-width: 768px) {
-      font-size: var(--text-4xl) !important;
-    }
-  }
-  
-  .post-content {
-    margin-top: var(--space-12);
-  }
-  
-  .post-card__tags {
-    display: flex;
-    gap: var(--space-2);
-    flex-wrap: wrap;
-    margin-top: var(--space-3);
-  }
-  
-  /* Responsive post navigation */
-  @media (max-width: 768px) {
-    nav[style*="grid-template-columns"] {
-      grid-template-columns: 1fr !important;
-    }
-    
-    a[style*="text-align: right"] {
-      text-align: left !important;
-    }
-  }
-</style>
+    </nav>
+  </footer>
+</article>
