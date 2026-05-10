@@ -8,7 +8,7 @@ permalink: /about/
 
 I am Serge Poueme—a software engineer drawn to the places where technology meets the structure of cities, the logic of intelligent systems, and the long arc of societal change.
 
-Born in Foumbot, raised between Yaoundé and Montréal, I have spent years thinking about how infrastructure becomes invisible when it works well, and what it takes to build things that endure.
+Born and raised in Yaoundé, I moved to Montréal to study engineering — and stayed. I have spent years thinking about how infrastructure becomes invisible when it works well, and what it takes to build things that endure.
 
 ## What I work on
 
@@ -28,4 +28,6 @@ I hold degrees in software engineering and have worked across Cameroon, France, 
 
 If something resonates, I welcome the conversation: [sergepoueme@gmail.com](mailto:sergepoueme@gmail.com)
 
-You can also find me on [GitHub](https://github.com/sdpoueme) and [LinkedIn](https://linkedin.com/in/sergepoueme).
+Elsewhere, I share fragments of daily life, music, and travels on [Instagram](https://www.instagram.com/sdonaldp/) — a less structured space where the engineer takes a break.
+
+You can also find me on [GitHub](https://github.com/sdpoueme) · [LinkedIn](https://linkedin.com/in/sergepoueme) · [Instagram](https://www.instagram.com/sdonaldp/).

@@ -10,6 +10,8 @@ layout: default
       {% if page.tag %}<span class="tag">{{ page.tag }}</span>{% endif %}
       {% if page.season %}<span>{{ page.season }}</span>{% endif %}
     </div>
+    {% if page.author and page.author != "Serge Poueme" %}<div class="post-author" style="margin-top: 8px; font-size: 14px; color: var(--text-muted);">Par {{ page.author }}</div>{% endif %}
+    {% if page.wayback_url %}<div class="post-wayback" style="margin-top: 8px; font-size: 13px;"><a href="{{ page.wayback_url }}" style="color: var(--text-muted); text-decoration: underline;">🕰️ Voir l'original sur la Wayback Machine</a></div>{% endif %}
   </header>
 
   <div class="post-content">

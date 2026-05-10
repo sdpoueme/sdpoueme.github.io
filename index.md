@@ -2,6 +2,7 @@
 layout: default
 title: "Serge Poueme — A collection of thoughts"
 description: "Essays on technology, cities, and the systems that connect them."
+permalink: /
 ---
 
 <section class="hero">
@@ -26,42 +27,25 @@ description: "Essays on technology, cities, and the systems that connect them."
 <div class="divider"><hr></div>
 
 <section class="section">
-  <div class="section-label">Topics <span class="bilingual">· Domaines</span></div>
-  <div class="topics-grid">
-    <a href="{{ '/topics/urban-intelligence' | relative_url }}" class="topic-item">
-      <i class="ph-buildings topic-icon"></i>
-      <div>
-        <h3>Urban Intelligence</h3>
-        <p>Smart cities, IoT platforms, cadastral systems, and the infrastructure of livable places.</p>
-      </div>
-    </a>
-    <a href="{{ '/topics/ai' | relative_url }}" class="topic-item">
-      <i class="ph-brain topic-icon"></i>
-      <div>
-        <h3>AI & Intelligent Systems</h3>
-        <p>Predictive maintenance, personal assistants, orchestration frameworks, and production AI.</p>
-      </div>
-    </a>
-    <a href="{{ '/topics/gaming' | relative_url }}" class="topic-item">
-      <i class="ph-game-controller topic-icon"></i>
-      <div>
-        <h3>Gaming & Real-Time</h3>
-        <p>Server infrastructure, interactive entertainment, and the economics of virtual worlds.</p>
-      </div>
-    </a>
-    <a href="{{ '/topics/writing' | relative_url }}" class="topic-item">
-      <i class="ph-pen-nib topic-icon"></i>
-      <div>
-        <h3>Essais</h3>
-        <p>Reflections on building technology, persistence, heritage, and the systems we inhabit.</p>
-      </div>
-    </a>
-  </div>
-</section>
-
-<div class="divider"><hr></div>
-
-<section class="section">
-  <div class="section-label">About <span class="bilingual">· À propos</span></div>
-  <p class="about-blurb">I am Serge Poueme—a software engineer drawn to the places where technology meets the structure of cities, the logic of intelligent systems, and the long arc of societal change. Born in Foumbot, raised between Yaoundé and Montréal, I have spent years thinking about how infrastructure becomes invisible when it works well, and what it takes to build things that endure. I write here because some ideas deserve a slower medium than a feed. If something resonates, I welcome the conversation: <a href="mailto:sergepoueme@gmail.com">sergepoueme@gmail.com</a>.</p>
+  <div class="section-label">Archives <span class="bilingual">· Archives</span></div>
+  <p class="section-intro">Earlier writing from 2011 — when this blog first existed on WordPress. Each post features a speculative fiction prelude imagining how the technology might evolve.</p>
+  <p class="section-intro" style="margin-top: 12px; font-size: 14px; color: var(--text-muted);">Earlier still, <a href="https://web.archive.org/web/20090331220212/http://aferkiwvidi.ca/">AferkiwVidi</a> (~2008) was a Pan-African cinema blog — co-written with <strong>Huguette Yere</strong>.</p>
+  <img src="{{ '/assets/images/aferkiwvidi-logo.jpg' | relative_url }}" alt="AferkiwVidi logo" style="max-width: 120px; margin: 12px 0; opacity: 0.8;">
+  <ul class="post-list">
+    {% assign archive_posts = site.posts | where: "archive", true | sort: "date" | reverse %}
+    {% for post in archive_posts %}
+    <li>
+      <a href="{{ post.url | relative_url }}">
+        <div class="post-number">{{ post.number }}</div>
+        <div class="post-title">{{ post.title }}</div>
+        {% if post.author and post.author != "Serge Poueme" %}<div class="post-author">par {{ post.author }}</div>{% endif %}
+        <div class="post-excerpt">{{ post.excerpt | strip_html | truncate: 200 }}</div>
+        <div class="post-meta">
+          <span class="tag">{{ post.tags | first | capitalize }}</span>
+          <span>{{ post.season }}</span>
+        </div>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
 </section>
