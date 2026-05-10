@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Home
+title: "Serge Poueme — A collection of thoughts"
+description: "Essays on technology, cities, and the systems that connect them."
 ---
 
 <section class="hero">
