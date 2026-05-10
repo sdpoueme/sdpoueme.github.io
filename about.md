@@ -29,5 +29,3 @@ I hold degrees in software engineering and have worked across Cameroon, France, 
 If something resonates, I welcome the conversation: [sergepoueme@gmail.com](mailto:sergepoueme@gmail.com)
 
 Elsewhere, I share fragments of daily life, music, and travels on [Instagram](https://www.instagram.com/sdonaldp/) — a less structured space where the engineer takes a break.
-
-You can also find me on [GitHub](https://github.com/sdpoueme) · [LinkedIn](https://linkedin.com/in/sergepoueme) · [Instagram](https://www.instagram.com/sdonaldp/).

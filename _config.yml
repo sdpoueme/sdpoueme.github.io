@@ -9,7 +9,8 @@ lang: "en"
 
 # Build Settings
 markdown: kramdown
-permalink: /:collection/:title/
+permalink: /posts/:title/
+future: true
 sass:
   style: compressed
 
@@ -21,6 +22,9 @@ collections:
   technology:
     output: true
     permalink: /technology/:title/
+  memories:
+    output: true
+    permalink: /memories/:title/
 
 # Default front matter
 defaults:
@@ -38,9 +42,20 @@ defaults:
       collection_label: "Technology · Technologie"
   - scope:
       path: ""
+      type: "memories"
+    values:
+      layout: "post"
+      collection_label: "Memories · Souvenirs"
+  - scope:
+      path: ""
       type: "pages"
     values:
       layout: "page"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
 
 # Exclude from build
 exclude:
