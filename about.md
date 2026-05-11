@@ -6,7 +6,7 @@ subtitle: "Proud son. Time & space traveler."
 permalink: /about/
 ---
 
-I am Serge Poueme — a father, a husband, a son, a brother. Everything else comes after that.
+I am Serge Poueme — a son, a brother. Everything else comes after that.
 
 I was born and raised in Yaoundé, Cameroon. I moved to Montréal to study engineering — a Master's in Industrial Engineering at Polytechnique Montréal — and stayed. But the degree is one thread among many. I am equally shaped by music, by cinema, by the memory of my grandmother's house lit by a single oil lamp, and by the conviction that the world can be built better than we found it.
 
