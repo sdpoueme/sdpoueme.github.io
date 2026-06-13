@@ -101,4 +101,4 @@ The difference between a paper and a city is not architecture. It is duration. I
 
 ---
 
-*This is the sixth essay in a series. The previous: [Digital sovereignty starts at the cadastre](/writing/2026/05/16/digital-sovereignty-starts-at-the-cadastre.html).*
+*This is the sixth essay in a series. The previous: [Digital sovereignty starts at the cadastre](/writing/digital-sovereignty-starts-at-the-cadastre/).*
