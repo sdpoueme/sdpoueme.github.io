@@ -7,5 +7,6 @@ permalink: /writing/
 
 <section class="section">
   <div class="section-label">Writing <span class="bilingual">· Écriture</span></div>
-  {% include post-list.html posts=site.writing %}
+  {% assign sorted_writing = site.writing | sort: "date" | reverse %}
+  {% include post-list.html posts=sorted_writing %}
 </section>
